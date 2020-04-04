@@ -1,0 +1,2 @@
+# Copy to cygwin clipboard
+bind -n C-t run "tmux save-buffer - > /dev/clipboard"
