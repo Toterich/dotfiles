@@ -39,6 +39,8 @@ set hlsearch
 set path+=**
 set wildmenu
 
+set complete-=i
+
 " Trim trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
