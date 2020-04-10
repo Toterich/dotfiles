@@ -75,7 +75,7 @@ esac
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
     # use monokai ls dircolors
-    eval `dircolors .dircolors.monokai`
+    eval `dircolors $HOME/.dircolors.monokai`
 fi
 
 # colored GCC warnings and errors
