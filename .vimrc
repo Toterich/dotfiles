@@ -48,6 +48,9 @@ autocmd BufWritePre * %s/\s\+$//e
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
+" Insert templates
+nnoremap ,doxyf :-1read $HOME/.vim/templates/DoxyHeader.txt<CR>jA <C-R>%<Esc>jjA <C-R>=strftime('%m/%d/%y')<CR><Esc>3j$
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " Close vim if only NERDTree is open
