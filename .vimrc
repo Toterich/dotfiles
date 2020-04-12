@@ -33,6 +33,8 @@ set hidden
 set ruler
 
 syntax on
+colorscheme noctu
+
 set hlsearch
 
 " Fuzzy search
