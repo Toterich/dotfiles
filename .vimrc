@@ -1,3 +1,4 @@
+" Vundle plugin manager
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -15,6 +16,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 filetype plugin indent on
+" End Vundle plugin manager
 
 set encoding=utf-8
 
@@ -28,6 +30,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" keep non-visible buffers open in background
 set hidden
 
 set ruler
@@ -41,7 +44,12 @@ set hlsearch
 set path+=**
 set wildmenu
 
+" do not search includes for autocomplete
 set complete-=i
+
+" C/C++ indentation
+set cindent
+set cinoptions=g-1
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
