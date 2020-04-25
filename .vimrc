@@ -54,9 +54,26 @@ set cinoptions=g-1
 " Trim trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" Use silver searcher for searching
+" Grepping
+" Use ag instead of regular grep
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
+" Run grepprg silently
+function! Grep(...)
+	return system(join([&grepprg] + [join(a:000, ' ')], ' '))
+endfunction
+command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
+command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
+" replace grep by Grep
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
+
+" automatically open quickfix window after populating it
+augroup quickfix
+	autocmd!
+	autocmd QuickFixCmdPost cgetexpr cwindow
+	autocmd QuickFixCmdPost lgetexpr lwindow
+augroup END
 
 " Insert templates
 nnoremap ,doxyf :-1read $HOME/.vim/templates/DoxyHeader.txt<CR>jA <C-R>%<Esc>jjA <C-R>=strftime('%m/%d/%y')<CR><Esc>3j$
