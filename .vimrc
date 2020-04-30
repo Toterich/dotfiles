@@ -13,6 +13,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'jansenm/vim-cmake'
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jceb/vim-orgmode'
 
 call vundle#end()
 filetype plugin indent on
