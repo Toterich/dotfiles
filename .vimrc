@@ -14,6 +14,7 @@ Plugin 'jansenm/vim-cmake'
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jceb/vim-orgmode'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on
@@ -79,8 +80,16 @@ augroup END
 " Insert templates
 nnoremap ,doxyf :-1read $HOME/.vim/templates/DoxyHeader.txt<CR>jA <C-R>%<Esc>jjA <C-R>=strftime('%m/%d/%y')<CR><Esc>3j$
 
+" Easy escaping
+inoremap jk <esc>
+inoremap kj <esc>
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+map <F7> :NERDTreeFind<CR>
 " Close vim if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Tagbar
+map <F8> :TagbarToggle<CR>
 
