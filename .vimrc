@@ -78,7 +78,7 @@ augroup quickfix
 augroup END
 
 " Insert templates
-nnoremap ,doxyf :-1read $HOME/.vim/templates/DoxyHeader.txt<CR>jA <C-R>%<Esc>jjA <C-R>=strftime('%m/%d/%y')<CR><Esc>3j$
+nnoremap ,doxyf :-1read $HOME/.vim/templates/DoxyHeader.txt<CR>jA <C-R>=expand('%:t')<CR><Esc>jjA <C-R>=strftime('%m/%d/%y')<CR><Esc>3j$
 
 " Easy escaping
 inoremap jk <esc>
