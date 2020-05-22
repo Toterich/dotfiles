@@ -15,6 +15,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jceb/vim-orgmode'
 Plugin 'majutsushi/tagbar'
+Plugin 'zhou13/vim-easyescape'
 
 call vundle#end()
 filetype plugin indent on
@@ -81,8 +82,10 @@ augroup END
 nnoremap ,doxyf :-1read $HOME/.vim/templates/DoxyHeader.txt<CR>jA <C-R>=expand('%:t')<CR><Esc>jjA <C-R>=strftime('%m/%d/%y')<CR><Esc>3j$
 
 " Easy escaping
-inoremap jk <esc>
-inoremap kj <esc>
+let g:easyescape_chars = { "j" : 1, "k" : 1 }
+let g:easyescape_timeout = 100
+cnoremap jk <esc>
+cnoremap kj <esc>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
