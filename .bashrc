@@ -8,16 +8,16 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
+# Ignore/erase duplicate history entries, ignore commands starting with space
+HISTCONTROL=ignoreboth:erasedups
+# append history entries..
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=2000
+# After each command, save and reload history
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+# Set max number of stored history lines in a session
+HISTSIZE=1000
+# Set max numbe of stored history lines in the history file
+HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
