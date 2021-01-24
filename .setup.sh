@@ -5,7 +5,8 @@
 # 1. Clone this repository
 # git clone --bare <git-repo-url> $HOME/.cfg
 #
-# 2. Run this script
+# 2. Source this script
+# source ./.setup.sh
 
 config() {
     /usr/bin/git --git-dir="$HOME"/.cfg/ --work-tree="$HOME" "$@"
@@ -18,6 +19,12 @@ xargs -I{} mv {} .config-backup/{}
 
 # Checkout config
 config checkout
+
+# Source config files
+if [ "$(ps -p $$ -ocomm=)" == "bash" ];
+then
+    source "$HOME"/.bashrc
+fi
 
 # Install Vundle
 if [ -x "$(command -v nvim)" ] || [ -x "$(command -v vim)" ];
