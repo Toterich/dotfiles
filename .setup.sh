@@ -20,4 +20,6 @@ xargs -I{} mv {} .config-backup/{}
 config checkout
 
 # Install Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git "$HOME"/.vim/bundle/Vundle.vim
+if [ -x "$(command -v nvim)" ] || [ -x "$(command -v vim)" ];
+    git clone https://github.com/VundleVim/Vundle.vim.git "$HOME"/.vim/bundle/Vundle.vim
+fi
