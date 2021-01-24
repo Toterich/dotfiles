@@ -21,12 +21,12 @@ else
    VISUAL=vi
 fi
 
-# Ignore/erase duplicate history entries, ignore commands starting with space
-HISTCONTROL=ignoreboth:erasedups
-# append history entries..
+# Erase duplicate history entries, ignore commands starting with space
+HISTCONTROL=ignorespaces:erasedups
+# append history entries to history file on exit
 shopt -s histappend
-# After each command, save and reload history
-PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+# After each command, append to the history file
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Set max number of stored history lines in a session
 HISTSIZE=1000
 # Set max numbe of stored history lines in the history file
