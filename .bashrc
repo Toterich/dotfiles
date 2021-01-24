@@ -8,6 +8,19 @@ case $- in
       *) return;;
 esac
 
+# Use vi-mode in shell prompt
+set -o vi
+# Use nvim/vim/vi as default editor
+if [ -x "$(command -v nvim)" ];
+then
+   VISUAL=nvim
+elif [ -x "$(command -v vim)" ];
+then
+   VISUAL=vim
+else
+   VISUAL=vi
+fi
+
 # Ignore/erase duplicate history entries, ignore commands starting with space
 HISTCONTROL=ignoreboth:erasedups
 # append history entries..
