@@ -1,7 +1,11 @@
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # ls aliases
-alias ls='ls --color=auto'
+
+#for *BSD/darwin, --color=auto does not work, export CLICOLOR instead
+export CLICOLOR=1
+ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
