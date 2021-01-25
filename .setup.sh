@@ -23,10 +23,11 @@ config checkout
 # Source config files
 if [ "$(ps -p $$ -ocomm=)" == "bash" ];
 then
-    source "$HOME"/.bashrc
+    . "$HOME"/.bashrc
 fi
 
 # Install Vundle
 if [ -x "$(command -v nvim)" ] || [ -x "$(command -v vim)" ];
+then
     git clone https://github.com/VundleVim/Vundle.vim.git "$HOME"/.vim/bundle/Vundle.vim
 fi
