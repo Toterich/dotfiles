@@ -51,10 +51,12 @@ if ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
-  else
-      # This is used in PS1 below, so at least define it
-      alias __git_ps1=
   fi
+fi
+
+# git-prompt.sh contains __git_ps1, if present
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
 fi
 
 # set color prompt if it is supported
