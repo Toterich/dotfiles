@@ -5,8 +5,8 @@
 # 1. Clone this repository
 # git clone --bare <git-repo-url> $HOME/.cfg
 #
-# 2. Source this script
-# source ./.setup.sh
+# 2. Copy this script and execute it
+# ./.setup.sh
 
 config() {
     /usr/bin/git --git-dir="$HOME"/.cfg/ --work-tree="$HOME" "$@"
@@ -21,7 +21,7 @@ xargs -I{} mv {} .config-backup/{}
 config checkout
 
 # Source config files
-if [ "$(ps -p $$ -ocomm=)" == "bash" ];
+if [ "$(ps -p $$ -ocomm=)" = "bash" ];
 then
     . "$HOME"/.bashrc
 fi
