@@ -55,9 +55,7 @@ if ! shopt -oq posix; then
 fi
 
 # git-prompt.sh contains __git_ps1, if present
-if [ -f ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-fi
+source ~/.git-prompt.sh
 
 # set color prompt if it is supported
 case "$TERM" in
@@ -65,10 +63,10 @@ case "$TERM" in
 esac
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h\w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]->\[\033[0m\033[0;32m\] \$\[\033[0m\] '
+    PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h\w\[\033[0;32m\]$(__git_ps1)'$'\n''\[\033[0;32m\]->\[\033[0m\033[0;32m\] \$\[\033[0m\] '
 else
    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='\u @ \h\w$(__git_ps1)\n->\$ '
+    PS1='\u @ \h\w$(__git_ps1)'$'\n''->\$ '
 fi
 
 unset color_prompt
