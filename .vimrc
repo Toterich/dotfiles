@@ -9,14 +9,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-scripts/a.vim'
-Plugin 'jansenm/vim-cmake'
-Plugin 'preservim/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jceb/vim-orgmode'
-Plugin 'majutsushi/tagbar'
-Plugin 'zhou13/vim-easyescape'
-
 call vundle#end()
 filetype plugin indent on
 " End Vundle plugin manager
