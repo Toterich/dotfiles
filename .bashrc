@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+source $HOME/.osc7.sh
+
 # Use vi-mode in shell prompt
 set -o vi
 # Use nvim/vim/vi as default editor
